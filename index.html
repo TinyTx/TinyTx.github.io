@@ -356,9 +356,10 @@
             <h2 id="霍夫变换"><a href="#霍夫变换" class="headerlink" title="霍夫变换"></a>霍夫变换</h2><p>霍夫变换是图像处理中从图像中识别几何形状的基本方法之一，应用很广泛，也有很多改进算法。主要用来从图像中分离出具有某种相同特征的几何形状（如，直线，圆等）。最基本的霍夫变换是从黑白图像中检测直线(线段)。</p>
 <hr>
 <ul>
-<li><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3>首先考虑笛卡尔坐标系下的直线表达式:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = kx+b</span><br></pre></td></tr></table></figure>
-</li>
+<li><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3></li>
 </ul>
+<p>首先考虑笛卡尔坐标系下的直线表达式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = kx+b</span><br></pre></td></tr></table></figure>
 <p>已知一点A(x0,y0),那么在笛卡尔坐标系中，过这个点的直线有无数条，直线簇为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y_0 = kx_0+b</span><br></pre></td></tr></table></figure></p>
 <p>现在我们将坐标系转换一下，令横坐标为k，纵坐标为b，这样在参数空间得到如下直线，直线上的没一点都代表了原笛卡尔坐标系中的一条直线：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = x_0k+y_0</span><br></pre></td></tr></table></figure>
