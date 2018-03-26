@@ -282,6 +282,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/Hougo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Youta">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="韩闲森">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/26/Hougo/" itemprop="url">Hougo霍夫变换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T17:59:01+08:00">
+                2018-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="霍夫变换"><a href="#霍夫变换" class="headerlink" title="霍夫变换"></a>霍夫变换</h2><p>霍夫变换是图像处理中从图像中识别几何形状的基本方法之一，应用很广泛，也有很多改进算法。主要用来从图像中分离出具有某种相同特征的几何形状（如，直线，圆等）。最基本的霍夫变换是从黑白图像中检测直线(线段)。</p>
+<hr>
+<ul>
+<li><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3>首先考虑笛卡尔坐标系下的直线表达式:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = kx+b</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>已知一点A(x0,y0),那么在笛卡尔坐标系中，过这个点的直线有无数条，直线簇为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y_0 = kx_0+b</span><br></pre></td></tr></table></figure></p>
+<p>现在我们将坐标系转换一下，令横坐标为k，纵坐标为b，这样在参数空间得到如下直线，直线上的没一点都代表了原笛卡尔坐标系中的一条直线：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = x_0k+y_0</span><br></pre></td></tr></table></figure>
+<p>同样，在考虑笛卡尔坐标系中的另一点B(x1,y1)，同样也会得到一个如下形式的直线族以及变化到参数空间中的一条直线。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y_1 = kx_1+b</span><br><span class="line"></span><br><span class="line">b = x_1k+y_1</span><br></pre></td></tr></table></figure>
+<blockquote>
+</blockquote>
+<hr>
+<p>现在我们令A,B两点为下图中的两点，过两点的直线簇也部分绘制在图中。<br><img src="https://note.youdao.com/yws/api/personal/file/WEBd90f832b98169b2b3452e56ab5b651ef?method=download&amp;shareKey=01cefd90a952f24c1342505d40e7a6a7" alt="image"></p>
+<hr>
+<p>在参数空间中，这两条直线将交于一点，而交点的所对应的参数(k,b)正是笛卡尔坐标系中通过A,B两点直线的参数。如下图所示。<br><img src="https://note.youdao.com/yws/api/personal/file/WEB94ac8e0d2dc3aab2289e7cc83eb98209?method=download&amp;shareKey=3d890b708e474823e8901ee07263950a" alt="image"></p>
+<hr>
+<p>但是通过这样的方式确定直线存在着问题，因为垂直于X轴的直线因为斜率不存在而无法表示，为了解决这个问题，将参数空间换为极坐标。直线的极坐标表达式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\rho = xcos\theta + ysin\theta</span><br></pre></td></tr></table></figure></p>
+<p>上式中等式左边rho为极点到直线的距离，而角度theta为距离与横轴的角度，这时，笛卡尔坐标系中的一点，就对应到极坐标中的一条曲线(正弦)，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\rho = x_0cos\theta + y_0sin\theta</span><br></pre></td></tr></table></figure></p>
+<p>于是空间中的点将会在极坐标中产生很多的正弦线，在同一直线上的点的正弦将会在极坐标中集中交于一点，确定极坐标的交点(rho,theta)就可以求得平面直角坐标系中的直线。</p>
+<hr>
+<ul>
+<li><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3>在图像处理中使用霍夫变换来检测图像中的直线（也可以检测其他形状），我们首先需要获得图像的灰度图像，然后应用边缘检测算法得到图像的二值边缘图像，接下来就可以使用Hougo进行检测了。</li>
+</ul>
+<p>在得到的边缘图像中的每个前景点，考虑以特定的一个角度离散化经过这个点的所有的直线，计算经过离散化的每条直线的距离rho。我们这样做相当于也将霍夫空间离散化了，即按照特定的步长离散了角度theta和距离rho，那么原空间中每个点计算后的值都会落霍夫空间中的一个小区域中，每落入一个区域，对应的累加器加1，最后我们设定一个阈值，累加器高于某个值的霍夫空间点就对应了一条直线。<br>可以在<a href="http://homepages.inf.ed.ac.uk/amos/hough.html" target="_blank" rel="noopener">这里</a>看到详细的动画展示。</p>
+<p>OpenCV中最简单的霍夫变换方法如下，第一个参数是得到的边缘二值图像，第二个参数为rho的离散化步长，第三个参数为theta的离散化步长，第四个参数为threshold即设定的阈值。</p>
+<pre><code>lines = cv2.HoughLines(edges,1,np.pi/180,200)
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -522,7 +669,7 @@ print(i)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
