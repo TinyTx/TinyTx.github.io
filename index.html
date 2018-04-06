@@ -292,6 +292,141 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cnglish.com/2018/04/06/demo1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Youta">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="韩闲森">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/06/demo1/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-06T15:11:10+08:00">
+                2018-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="如何完美删除a-b列表中相同的元素"><a href="#如何完美删除a-b列表中相同的元素" class="headerlink" title="如何完美删除a,b列表中相同的元素"></a>如何完美删除a,b列表中相同的元素</h3><p>不多哔哔，见代码</p>
+<p>对深度拷贝的对象进行修改并不会改变原来的对象</p>
+<p>如果是浅拷贝（copy）则会同时修改原对象的值</p>
+<p>list.remove()会移除第一个匹配到的值</p>
+<pre><code>import copy
+def array_diff(a, b):
+    #注意这里需要深度拷贝，如果遍历和移除都在同一个列表上进行的话会报错
+    aa = copy.deepcopy(a)
+    # b中有相同的数字的时候，在后面remove时报错，cus第一次已经remove光了
+    for i in b:
+        for t in range(len(aa)):
+            if aa[t] == i:
+             # 我们加一层判断，这样就不会出现list.remove(x): x not in list的错误了
+                if aa[t] in a:
+                    a.remove(aa[t])
+    return a
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cnglish.com/2018/03/26/Hougo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -724,7 +859,7 @@ print(i)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
